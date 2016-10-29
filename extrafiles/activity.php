@@ -7,9 +7,8 @@
 	echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
 	
-	
+
 	$module_id = $_GET['module_id'];
-	
 	
 	$check_name = mysqli_query($con,"SELECT * FROM activity where module_id = '$module_id'");
 	
