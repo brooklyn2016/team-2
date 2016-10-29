@@ -118,7 +118,8 @@ public class ModulesFragment extends Fragment {
                                 moduleObj.getInt("num_of_activities"),
                                 moduleObj.getString("materials"),
                                 moduleObj.getString("objective"),
-                                moduleObj.getString("content"),
+//                                moduleObj.getString("content"),
+                                "content place holder",
                                 "No Process",
                                 moduleObj.getInt("module_number")
                         );

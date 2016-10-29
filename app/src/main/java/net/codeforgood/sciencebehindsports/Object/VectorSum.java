@@ -1,3 +1,5 @@
+package net.codeforgood.sciencebehindsports.Object;
+
 import java.lang.Math;
 public class VectorSum {
 	//I guess we can say that one of the vectors is wind
