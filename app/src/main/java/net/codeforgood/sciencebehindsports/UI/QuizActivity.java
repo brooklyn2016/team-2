@@ -13,6 +13,7 @@ public class QuizActivity extends AppCompatActivity {
 
     Button choiceA,choiceB,choiceC, choiceD,hint;
     TextView question;
+    public boolean answered = false;
     public int rightAns;
     public String tempQuestion;
     public String tempAnswer1;
@@ -102,10 +103,13 @@ public class QuizActivity extends AppCompatActivity {
         });
         hint.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                hint.setTextSize(12);
-                hint.setText(tempHint);
+                if (!answered) {
+                    hint.setTextSize(12);
+                    hint.setText(tempHint);
+                }
+                if(answered)
+                    finish();
             }
-
         });
 
     }
@@ -129,5 +133,6 @@ public class QuizActivity extends AppCompatActivity {
             choiceD.setBackgroundColor(Color.GREEN);
         question.setText("Explanation: "+tempExplanation);
         hint.setText("BACK");
+        answered = true;
     }
 }
