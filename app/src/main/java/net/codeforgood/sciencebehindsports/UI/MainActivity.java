@@ -15,6 +15,7 @@ import android.view.View;
 
 import net.codeforgood.sciencebehindsports.Fragment.HomeFragment;
 import net.codeforgood.sciencebehindsports.Fragment.ModulesFragment;
+import net.codeforgood.sciencebehindsports.Fragment.ProgressFragment;
 import net.codeforgood.sciencebehindsports.R;
 
 public class MainActivity extends AppCompatActivity
@@ -118,6 +119,16 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
     }
+
+    private void progressFragment(){
+        ProgressFragment fragment = new ProgressFragment();
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
+    }
+
+
 
 
 }
