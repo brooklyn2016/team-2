@@ -104,6 +104,8 @@ public class ModuleDetailActivity extends AppCompatActivity {
 
 
 
+
+
         startActivity = (Button) findViewById(R.id.module_detail_activity);
         startActivity.setOnClickListener(new View.OnClickListener() {
             @Override
