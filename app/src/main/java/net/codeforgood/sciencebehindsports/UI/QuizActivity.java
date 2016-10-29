@@ -15,7 +15,8 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
 
     //quiz activity goes here
-
+        Bundle data = getIntent().getExtras();
+        int activityID = data.getInt("activityId");
 
     }
 }

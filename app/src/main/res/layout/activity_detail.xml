@@ -18,7 +18,9 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:textColor="#FF0000"/>
+            android:textSize="32dp"
+            android:textColor="#FF0000"
+            android:text="Activity No."/>
         <TextView
             android:id="@+id/activity_detail_time"
             android:layout_width="match_parent"
@@ -26,12 +28,15 @@
             android:layout_gravity="center"
             android:paddingBottom="10dp"
             />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src=""/>
         <TextView
             android:id="@+id/activity_detail_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="10dp"/>
-
         <TextView
             android:id="@+id/activity_detail_material"
             android:layout_width="match_parent"
@@ -49,8 +54,19 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:paddingBottom="10dp"/>
+        
 
     </LinearLayout>
-</ScrollView>
 
+</ScrollView>
+    <Button
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:id="@+id/activity_detail_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="20dp"
+        android:layout_alignParentBottom = "true"
+        android:shadowColor="#00C0FF"
+        android:text="Start Quiz" />
 </RelativeLayout>
