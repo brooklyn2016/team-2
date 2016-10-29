@@ -7,6 +7,7 @@
     tools:context="net.codeforgood.sciencebehindsports.UI.ActivityDetailActivity">
 
 <ScrollView
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <LinearLayout
@@ -39,6 +40,15 @@
             android:layout_height="match_parent"
             android:paddingBottom="10dp"
             android:textSize="16dp"/>
+        <VideoView
+            android:layout_below="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:id="@+id/activity_detail_video"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
+
 
         <TextView
             android:id="@+id/activity_detail_result"
@@ -46,8 +56,8 @@
             android:layout_height="match_parent"
             android:paddingBottom="10dp"
             android:textSize="16dp"/>
-
         <Button
+            android:layout_below="@+id/activity_detail_video"
             android:id="@+id/activity_detail_quiz"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -55,6 +65,7 @@
             android:text="Start Quiz"
             android:textSize="20dp"
             />
+
     </LinearLayout>
 </ScrollView>
 

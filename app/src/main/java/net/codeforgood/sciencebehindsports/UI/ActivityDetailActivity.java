@@ -5,8 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import net.codeforgood.sciencebehindsports.Object.Activity;
 import net.codeforgood.sciencebehindsports.R;
@@ -58,11 +59,55 @@ public class ActivityDetailActivity extends AppCompatActivity {
         if (instruction != null)
             resultView.append(result);
 
+
+        VideoView videoView = (VideoView) findViewById(R.id.activity_detail_video);
+//        videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.projectile_demo);
+
+
+
+//        VideoView videoView = (VideoView) findViewById(R.id.activity_detail_video);
+//        videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.projectile_demo);
+
+
+
+
+        switch (moduleId){
+            case 1:
+                videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.first_law_demo);
+                break;
+            case 2:
+                videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.projectile_demo);
+                break;
+            case 3:
+                videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.kinesiology);
+                break;
+            case 4:
+                videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.sound_wave_demo);
+                break;
+            case 5:
+                videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.material_demo);
+                break;
+            case 6:
+                videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.projectile_demo);
+                break;
+            default:
+                break;
+
+        }
+
+
+//        MediaController mediaController = new MediaController(this);
+//        mediaController.setAnchorView(videoView);
+//        videoView.setMediaController(mediaController);
+//        videoView.start();
         //ImageView imageOne = (ImageView) findViewById(R.id.module_detail_activity_imageView);
         //TextView textView = (TextView)findViewById(R.id.activity_detail_activity_num);
         //textView.setText(mActivity.getActivity_objective());
 
-
+        MediaController mediaController = new MediaController(this);
+        mediaController.setAnchorView(videoView);
+        videoView.setMediaController(mediaController);
+        videoView.start();
 
 
 
