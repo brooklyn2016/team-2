@@ -14,7 +14,6 @@
 	$check_name = mysqli_query($con,"SELECT * FROM quiz where id = '$activity_id'");
 	
 	$response["success"] = false;
-	//$response["colleges"]  = array();
 
 	
 	while($row = mysqli_fetch_array($check_name)){
@@ -25,12 +24,10 @@
 		$product["answers"]["answer3"] = $row["answer3"];
 		$product["answers"]["answer4"] = $row["answer4"];
 		$product["right_answer"] = $row["right_answer"];
-		//$product["activity_id"] = $row["activity_id"];
 		// push single product into final response array
 		array_push($response["activity"], $product);
 		$response["success"] = true;
 	}
-	//echo json_encode($rows);
 	mysqli_close($con);
 	echo json_encode($response);
 ?>

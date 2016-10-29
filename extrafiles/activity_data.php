@@ -13,7 +13,6 @@
 	$check_name = mysqli_query($con,"SELECT * FROM activity where id = '$activity_id'");
 	
 	$product["success"] = false;
-	//$response["colleges"]  = array();
 
 	
 	while($row = mysqli_fetch_array($check_name)){
@@ -26,10 +25,8 @@
 		$product["activity"]["materials"] = $row["materials"];
 		$product["activity"]["instruction"] = $row["inst"];
 		// push single product into final response array
-		//array_push($response["activity"], $product);
 		$response["success"] = true;
 	}
-	//echo json_encode($rows);
 	mysqli_close($con);
 	echo json_encode($product);
 ?>
