@@ -56,7 +56,7 @@ public class ModulesFragment extends Fragment {
 
         pDialog = new ProgressDialog(getContext());
         pDialog.setCancelable(false);
-        pDialog.setMessage("Logging In");
+        pDialog.setMessage("Bringing in the touchdowns");
 
         mModuleList = new ArrayList<>();
 

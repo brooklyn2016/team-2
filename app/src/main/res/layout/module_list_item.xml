@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="250dp"
     android:padding="16dp"
-    android:background="@color/cardview_shadow_start_color">
+    android:background="@android:color/holo_green_light">
 
     <TextView
         android:id="@+id/module_list_name"

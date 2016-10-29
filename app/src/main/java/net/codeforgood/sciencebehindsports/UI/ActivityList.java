@@ -40,7 +40,7 @@ public class ActivityList extends AppCompatActivity {
 
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
-        pDialog.setMessage("Getting Activity Data");
+        pDialog.setMessage("Gettin");
 
         mActivityList = new ArrayList<>();
         mAdapter = new ActivityAdapter(this, mActivityList);
