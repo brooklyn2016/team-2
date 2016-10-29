@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +26,9 @@ import net.codeforgood.sciencebehindsports.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class RegistrationActivity extends AppCompatActivity {
     private final String LOG_TAG = getClass().getSimpleName();
     private ProgressDialog pDialog;
@@ -40,7 +42,6 @@ public class RegistrationActivity extends AppCompatActivity {
         final EditText password = (EditText) findViewById(R.id.txtPasswordRegister);
         final EditText email = (EditText) findViewById(R.id.txtEmailRegister);
         final Button register = (Button) findViewById(R.id.btnRegister);
-        final EditText display = (EditText) findViewById(R.id.txtDisplayNameRegister);
 
         final TextView signup = (TextView) findViewById(R.id.txtSigninNow);
 
@@ -57,65 +58,70 @@ public class RegistrationActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nameuser = userName.getText().toString().toLowerCase().trim();
-                String emailAddr = email.getText().toString().toLowerCase().trim();
-                String pass = password.getText().toString().trim();
-                String displayName = display.getText().toString().trim();
+                final String nameuser = userName.getText().toString().toLowerCase().trim();
+                final String emailAddr = email.getText().toString().toLowerCase().trim();
+                final String pass = password.getText().toString().trim();
 
-                JSONObject post_dict = new JSONObject();
 
-                try {
-                    post_dict.put("email", emailAddr);
-                    post_dict.put("username", nameuser);
-                    post_dict.put("display_name", displayName);
-                    post_dict.put("password", pass);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
 
-                Log.d(LOG_TAG, post_dict.toString());
-
-                if (nameuser.isEmpty() || emailAddr.isEmpty() || pass.isEmpty() || displayName.isEmpty()) {
+                if (nameuser.isEmpty() || emailAddr.isEmpty() || pass.isEmpty()) {
                     Toast.makeText(getApplicationContext(),
                             "Please enter the credentials!", Toast.LENGTH_LONG)
                             .show();
                 } else {
+                    String tag_string_req = "req_login";
                     final RequestQueue requestQueue = Volley.newRequestQueue(RegistrationActivity.this);
-                    JsonObjectRequest jsonRequest = new JsonObjectRequest(
-                            Request.Method.POST,
-                            AppConfig.URL_REGISTER,
-                            post_dict,
-                            new Response.Listener<JSONObject>() {
-                                @Override
-                                public void onResponse(JSONObject response) {
-                                    try {
-                                        String token = response.getString("token");
-                                        session.setLogin(true);
-                                        session.setToken(token);
-                                        hideDialog();
-                                        requestQueue.stop();
-//                                        Intent intent = new Intent(RegistrationActivity.this, NavigationActivity.class);
-//                                        startActivity(intent);
-                                        finish();
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
+                    JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST,
+                            AppConfig.URL_REGISTER, null, new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
 
-                                    Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
-                                    requestQueue.stop();
+                            try {
+                                if(response.getBoolean("error") == true){
+                                    String message = response.getString("error-reason");
+                                    Toast.makeText(RegistrationActivity.this, message, Toast.LENGTH_SHORT).show();
+                                }else{
+//                                    session.setLogin(true);
+//                                    Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+//                                    startActivity(intent);
+//                                    finish();
+                                    Toast.makeText(RegistrationActivity.this, "Registration Success Full", Toast.LENGTH_SHORT).show();
+
                                 }
-                            },
+                                hideDialog();
+                                requestQueue.stop();
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                            hideDialog();
+                            requestQueue.stop();
+                        }
+                    },
                             new Response.ErrorListener() {
                                 @Override
                                 public void onErrorResponse(VolleyError error) {
-                                    Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
-                                    Log.d(LOG_TAG, error.toString());
-                                    error.printStackTrace();
+                                    Toast.makeText(getApplicationContext(), "some thing fishy", Toast.LENGTH_LONG).show();
+                                    hideDialog();
                                     requestQueue.stop();
                                 }
                             }
-                    );
-                    requestQueue.add(jsonRequest);
+                    ){
+
+                        @Override
+                        protected Map<String, String> getParams() {
+                            // Posting parameters to login url
+                            Map<String, String> params = new HashMap<String, String>();
+                            params.put("email", nameuser);
+                            params.put("password", pass);
+                            params.put("email", emailAddr);
+
+                            return params;
+                        }
+
+                    };
+                    requestQueue.add(jsonObjReq);
                 }
 
             }
@@ -125,7 +131,7 @@ public class RegistrationActivity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }

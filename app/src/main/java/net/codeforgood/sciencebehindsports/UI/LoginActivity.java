@@ -24,9 +24,11 @@ import net.codeforgood.sciencebehindsports.Helper.SessionManager;
 import net.codeforgood.sciencebehindsports.Helper.Utility;
 import net.codeforgood.sciencebehindsports.R;
 
-
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
     private final String TAG = getClass().getSimpleName();
@@ -57,8 +59,8 @@ public class LoginActivity extends AppCompatActivity {
         pDialog.setMessage("Logging In");
 
         if (session.isLoggedIn()) {
-//            Intent intent = new Intent(LoginActivity.this, NavigationActivity.class);
-//            startActivity(intent);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
             finish();
         }
 
@@ -66,17 +68,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showDialog();
-                String username = userName.getText().toString().toLowerCase().trim();
-                String pass = passWord.getText().toString().trim();
+                final String username = userName.getText().toString().toLowerCase().trim();
+                final String pass = passWord.getText().toString().trim();
 
-                JSONObject post_dict = new JSONObject();
-
-                try {
-                    post_dict.put("username", username);
-                    post_dict.put("password", pass);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
 
 
                 if (username.equals("") || pass.equals("")) {
@@ -84,24 +78,29 @@ public class LoginActivity extends AppCompatActivity {
                             "Please enter the credentials!", Toast.LENGTH_LONG)
                             .show();
                 } else {
+                    String tag_string_req = "req_login";
                     final RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
-                    JsonObjectRequest jsonRequest = new JsonObjectRequest(
-                            Request.Method.POST,
-                            AppConfig.URL_LOGIN,
-                            post_dict,
-                            new Response.Listener<JSONObject>() {
+                    JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST,
+                            AppConfig.URL_LOGIN, null, new Response.Listener<JSONObject>() {
                                 @Override
                                 public void onResponse(JSONObject response) {
 
                                     try {
-                                        String token = response.getString("token");
-                                        session.setLogin(true);
-                                        session.setToken(token);
+                                        if(response.getBoolean("error") == true){
+                                            String message = response.getString("error-message");
+                                            Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
+                                        }
+                                        else{
+                                            session.setLogin(true);
+                                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }
+
+
                                         hideDialog();
                                         requestQueue.stop();
-//                                        Intent intent = new Intent(LoginActivity.this, NavigationActivity.class);
-//                                        startActivity(intent);
-                                        finish();
+
 
 
                                     } catch (JSONException e) {
@@ -120,8 +119,20 @@ public class LoginActivity extends AppCompatActivity {
                                     requestQueue.stop();
                                 }
                             }
-                    );
-                    requestQueue.add(jsonRequest);
+                    ){
+
+                        @Override
+                        protected Map<String, String> getParams() {
+                            // Posting parameters to login url
+                            Map<String, String> params = new HashMap<String, String>();
+                            params.put("email", username);
+                            params.put("password", pass);
+
+                            return params;
+                        }
+
+                    };
+                    requestQueue.add(jsonObjReq);
                 }
 
             }
@@ -130,7 +141,7 @@ public class LoginActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), RegistrationActivity.class);
+                Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
                 startActivity(intent);
                 finish();
             }

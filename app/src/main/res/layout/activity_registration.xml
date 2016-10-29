@@ -55,17 +55,6 @@
                     tools:targetApi="jelly_bean_mr1" />
 
                 <EditText
-                    android:id="@+id/txtDisplayNameRegister"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/rounded_edittext"
-                    android:ems="10"
-                    android:hint="@string/display_name"
-                    android:textAlignment="center"
-                    tools:targetApi="jelly_bean_mr1" />
-
-                <EditText
                     android:id="@+id/txtPasswordRegister"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"

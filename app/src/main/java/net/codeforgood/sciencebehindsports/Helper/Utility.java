@@ -4,8 +4,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
-
-import com.slack.cunycodes.showtrack.R;
+import net.codeforgood.sciencebehindsports.R;
 
 import org.json.JSONObject;
 
