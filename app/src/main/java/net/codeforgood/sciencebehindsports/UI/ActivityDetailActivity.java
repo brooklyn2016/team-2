@@ -26,7 +26,7 @@ public class ActivityDetailActivity extends AppCompatActivity {
 
 
 
-        startQuiz = (Button) findViewById(R.id.module_detail_activity);
+        startQuiz = (Button) findViewById(R.id.activity_detail_quiz);
         startQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

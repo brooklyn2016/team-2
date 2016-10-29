@@ -38,5 +38,11 @@
 
     </LinearLayout>
 </ScrollView>
-
+    <Button
+        android:id="@+id/activity_detail_quiz"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:text="Start Quiz"
+        />
 </RelativeLayout>
