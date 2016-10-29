@@ -104,6 +104,8 @@ public class ModuleDetailActivity extends AppCompatActivity {
 
 
 
+
+
         startActivity = (Button) findViewById(R.id.module_detail_activity);
         startActivity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,7 +113,6 @@ public class ModuleDetailActivity extends AppCompatActivity {
                 Intent intent = new Intent(ModuleDetailActivity.this, ActivityList.class);
                 intent.putExtra("moduleId", moduleId);
                 startActivity(intent);
-
                 finish();
             }
         });
