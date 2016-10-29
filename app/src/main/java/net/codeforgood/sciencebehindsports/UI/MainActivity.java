@@ -1,5 +1,6 @@
 package net.codeforgood.sciencebehindsports.UI;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -17,18 +18,20 @@ import net.codeforgood.sciencebehindsports.Fragment.AvatarFragment;
 import net.codeforgood.sciencebehindsports.Fragment.HomeFragment;
 import net.codeforgood.sciencebehindsports.Fragment.ModulesFragment;
 import net.codeforgood.sciencebehindsports.Fragment.ProgressFragment;
+import net.codeforgood.sciencebehindsports.Helper.SessionManager;
 import net.codeforgood.sciencebehindsports.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private SessionManager session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        session = new SessionManager(getApplicationContext());
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +44,7 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -75,6 +78,12 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+        else if(id == R.id.action_logout){
+            session.setLogin(false);
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);
