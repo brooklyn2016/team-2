@@ -26,7 +26,7 @@
         android:layout_alignStart="@+id/profile_image"
         android:gravity="left"
         android:paddingBottom="4dp"
-        android:text="Random Place Holder Test"
+        android:text="User Info Goes Here"
         android:textColor="#FFF"
         android:textSize="14sp"
         android:textStyle="bold" />
@@ -40,7 +40,7 @@
         android:layout_alignStart="@+id/username_nav_header"
         android:layout_marginBottom="8dp"
         android:gravity="left"
-        android:text="More Random Shit"
+        android:text="User Email Comes Here"
         android:textColor="#fff"
         android:textSize="14sp" />
 
