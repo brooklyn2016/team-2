@@ -40,7 +40,7 @@ public class ModuleAdapter extends ArrayAdapter<Module> {
 
         name.setText(moduleName);
         time.setText(moduleTime);
-        name.setText(moduleActivities);
+        activities.setText(moduleActivities);
 
         return convertView;
     }

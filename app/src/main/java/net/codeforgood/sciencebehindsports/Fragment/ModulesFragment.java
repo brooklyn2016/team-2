@@ -38,6 +38,12 @@ public class ModulesFragment extends Fragment {
 
 
         mModuleList = new ArrayList<>();
+
+
+
+
+
+
         mAdapter = new ModuleAdapter(getContext(), mModuleList);
 
 
