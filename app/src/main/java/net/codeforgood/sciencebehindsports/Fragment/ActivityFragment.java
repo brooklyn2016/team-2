@@ -33,7 +33,7 @@ public class ActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         tempList = new ArrayList<>();
-
+    //temporary mock place holder to test out array adapter
         tempList.add("activity01");
         tempList.add("activity02");
         tempList.add("activity03");
@@ -42,6 +42,7 @@ public class ActivityFragment extends Fragment {
         tempList.add("activity06");
         tempList.add("activity07");
 
+        //creates new array adapter for mock activity
         tempAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, tempList);
         activityRoot = inflater.inflate(R.layout.fragment_activity, container, false);
         ListView listView = (ListView) activityRoot.findViewById(R.id.activity_list);
