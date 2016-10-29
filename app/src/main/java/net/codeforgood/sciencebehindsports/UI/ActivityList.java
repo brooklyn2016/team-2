@@ -26,8 +26,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class ActivityList extends AppCompatActivity {
 
@@ -50,11 +48,6 @@ public class ActivityList extends AppCompatActivity {
         moduleId = data.getInt("moduleId");
 
         populateList();
-        mActivityList.add(new Activity(1, 1, "get out",moduleId,"no obj", "no result", 100, "no material", "no instruction" ));
-        mActivityList.add(new Activity(2, 2, "get out",moduleId,"no obj", "no result", 100, "no material", "no instruction" ));
-        mActivityList.add(new Activity(3, 3, "get out",moduleId,"no obj", "no result", 100, "no material", "no instruction" ));
-        mActivityList.add(new Activity(4, 4, "get out",moduleId,"no obj", "no result", 100, "no material", "no instruction" ));
-        mActivityList.add(new Activity(5, 5, "get out",moduleId,"no obj", "no result", 100, "no material", "no instruction" ));
 
         ListView listView = (ListView) this.findViewById(R.id.activity_list);
         listView.setAdapter(mAdapter);
@@ -76,18 +69,16 @@ public class ActivityList extends AppCompatActivity {
         String tag_string_req = "req_module";
         showDialog();
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        String url = AppConfig.URL_ACTIVITY+"?module_id="+moduleId;
+
+
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                AppConfig.URL_ACTIVITY, null, new Response.Listener<JSONObject>() {
+                url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-/*
-(int id, String module_name, int module_time,
-                  int num_of_activities, String materials,
-                  String objective, String content,
-                  String process, int module_number)
-
- */
                 try {
+
                     JSONArray moduleArray = response.getJSONArray("activity");
 
                     for(int i = 0; i<moduleArray.length(); i++){
@@ -108,7 +99,7 @@ public class ActivityList extends AppCompatActivity {
                                 activityObject.getString("result"),
                                 activityObject.getInt("activity_time"),
                                 activityObject.getString("materials"),
-                                activityObject.getString("instruction")
+                                "No Instruction Yet"
                         );
 
 
@@ -147,20 +138,7 @@ public class ActivityList extends AppCompatActivity {
                         requestQueue.stop();
                     }
                 }
-        ){
-
-            @Override
-            protected Map<String, String> getParams() {
-                // Posting parameters to login url
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("module_id", String.valueOf(moduleId));
-//                params.put("email", username);
-//                params.put("password", pass);
-
-                return params;
-            }
-
-        };
+        );
         requestQueue.add(jsonObjReq);
     }
 
