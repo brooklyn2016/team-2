@@ -17,7 +17,7 @@ public class ActivityDetailActivity extends AppCompatActivity {
 
         Bundle data = getIntent().getExtras();
         final Activity mActivity = data.getParcelable("ActivityDetail");
-        TextView textView = (TextView)findViewById(R.id.activity_detail_test);
+        TextView textView = (TextView)findViewById(R.id.activity_detail_activity_num);
         textView.setText(mActivity.getActivity_objective());
     }
 }
