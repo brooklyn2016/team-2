@@ -42,4 +42,5 @@ slackbot BOT [2:36 AM] Only visible to you
 junli is currently in Do Not Disturb mode and may not be alerted of this message right away. If it’s urgent, click here to send a notification now. Keep in mind, if the recipient has all notifications turned off, they will only get your message when they’re back online.
 
 How does Do Not Disturb work? Learn more in this Help Center article: Do Not Disturb</string>
+    <string name="title_activity_splash">SplashActivity</string>
 </resources>
