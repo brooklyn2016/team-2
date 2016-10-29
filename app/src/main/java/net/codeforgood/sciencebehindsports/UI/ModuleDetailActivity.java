@@ -98,7 +98,8 @@ public class ModuleDetailActivity extends AppCompatActivity {
 
 
 
-
+        TextView contentView = (TextView) findViewById(R.id.module_detail_activity_content);
+        contentView.setText(content);
 
 
 
