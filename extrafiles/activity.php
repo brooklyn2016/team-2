@@ -14,23 +14,21 @@
 	$check_name = mysqli_query($con,"SELECT * FROM activity where module_id = '$module_id'");
 	
 	$response["success"] = false;
-	//$response["colleges"]  = array();
 
 	
 	while($row = mysqli_fetch_array($check_name)){
 		$product = array();
 		$product["activity_number"] = $row["activity_number"];
-		//$product["description"] = $row["description"];
-		//$product["activity_objective"] = $row["activity_objective"];
-		//$product["result"] = $row["result"];
+		$product["description"] = $row["description"];
+		$product["activity_objective"] = $row["activity_objective"];
+		$product["result"] = $row["result"];
 		$product["activity_time"] = $row["activity_time"];
 		$product["materials"] = $row["materials"];
-		//$product["instruction"] = $row["inst"];
+		$product["instruction"] = $row["inst"];
 		// push single product into final response array
 		array_push($response["activity"], $product);
 		$response["success"] = true;
 	}
-	//echo json_encode($rows);
 	mysqli_close($con);
 	echo json_encode($response);
 ?>
