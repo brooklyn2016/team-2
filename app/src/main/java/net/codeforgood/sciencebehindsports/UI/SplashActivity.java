@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.os.Handler;
+import android.widget.TextView;
 
 import net.codeforgood.sciencebehindsports.R;
 
@@ -23,6 +24,9 @@ public class SplashActivity extends AppCompatActivity {
 
         new Handler().postDelayed(new Runnable() {
             @Override
+
+            //starts off with Splash Screen as main intent, then moves on to login activity to check
+            //if user has logged in before
             public void run() {
                 Intent mainIntent = new Intent(SplashActivity.this, LoginActivity.class);
                 SplashActivity.this.startActivity(mainIntent);
