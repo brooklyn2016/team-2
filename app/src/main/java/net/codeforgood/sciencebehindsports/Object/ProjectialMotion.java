@@ -1,3 +1,5 @@
+package net.codeforgood.sciencebehindsports.Object;
+
 import java.lang.Math;
 
 public class ProjectialMotion {
