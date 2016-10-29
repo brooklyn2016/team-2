@@ -2,7 +2,6 @@ package net.codeforgood.sciencebehindsports.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,7 +9,6 @@ import android.widget.ListView;
 
 import net.codeforgood.sciencebehindsports.Adapter.ActivityAdapter;
 import net.codeforgood.sciencebehindsports.Object.Activity;
-import net.codeforgood.sciencebehindsports.Object.Module;
 import net.codeforgood.sciencebehindsports.R;
 
 import java.util.ArrayList;
@@ -41,7 +39,7 @@ public class ActivityList extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ActivityList.this, ActivityDetailActivity.class);
+                Intent intent = new Intent(ActivityList.this, Test.class);
                 intent.putExtra("ActivityDetail",  mActivityList.get(position));
                 startActivity(intent);
             }

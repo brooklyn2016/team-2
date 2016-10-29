@@ -25,7 +25,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".UI.ModuleDetailActivity" />
         <activity android:name=".UI.ActivityList" />
-        <activity android:name=".UI.QuizActivity"></activity>
+        <activity android:name=".UI.QuizActivity" />
+        <activity android:name=".UI.Test"></activity>
     </application>
 
 </manifest>
