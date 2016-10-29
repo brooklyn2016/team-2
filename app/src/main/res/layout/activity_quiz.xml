@@ -10,4 +10,55 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="net.codeforgood.sciencebehindsports.UI.QuizActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/activity_quiz_question"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="30dp"
+                />
+            
+            <Button
+                android:id="@+id/activity_quiz_choiceA"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+
+                />
+            <Button
+                android:id="@+id/activity_quiz_choiceB"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+
+                />
+            <Button
+                android:id="@+id/activity_quiz_choiceC"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+
+                />
+            <Button
+                android:id="@+id/activity_quiz_choiceD"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+            <Button
+                android:id="@+id/activity_quiz_hint"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:shadowColor="#00E0FF"
+                android:text="Hint"
+                android:textSize="24dp"/>
 </RelativeLayout>
