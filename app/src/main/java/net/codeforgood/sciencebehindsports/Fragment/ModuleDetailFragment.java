@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import net.codeforgood.sciencebehindsports.Object.Module;
 import net.codeforgood.sciencebehindsports.R;
 
 /**
@@ -14,10 +15,12 @@ import net.codeforgood.sciencebehindsports.R;
  */
 public class ModuleDetailFragment extends Fragment {
 
+    Module mMoudle;
 
-    public ModuleDetailFragment() {
-        // Required empty public constructor
+    public ModuleDetailFragment()
+    {
     }
+
 
 
     @Override
