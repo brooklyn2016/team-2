@@ -13,6 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import net.codeforgood.sciencebehindsports.Fragment.HomeFragment;
+import net.codeforgood.sciencebehindsports.Fragment.ModulesFragment;
 import net.codeforgood.sciencebehindsports.R;
 
 public class MainActivity extends AppCompatActivity
@@ -100,4 +102,22 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    private void homeFragment(){
+        HomeFragment fragment = new HomeFragment();
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
+    }
+
+    private void modulesFragment(){
+        ModulesFragment fragment = new ModulesFragment();
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
+    }
+
+
 }
