@@ -64,12 +64,12 @@ public class ModulesFragment extends Fragment {
         mAdapter = new ModuleAdapter(getContext(), mModuleList);
 
         populateList();
-        mModuleList.add(new Module(1, "module01", 100, 8, "ball", "no objective", "no content", "no process", 1));
-        mModuleList.add(new Module(2, "module02", 100, 8, "ball", "no objective", "no content", "no process", 2));
-        mModuleList.add(new Module(3, "module03", 100, 8, "ball", "no objective", "no content", "no process", 3));
-        mModuleList.add(new Module(4, "module04", 100, 8, "ball", "no objective", "no content", "no process", 4));
-        mModuleList.add(new Module(5, "module05", 100, 8, "ball", "no objective", "no content", "no process", 5));
-        mModuleList.add(new Module(6, "module06", 100, 8, "ball", "no objective", "no content", "no process", 6));
+//        mModuleList.add(new Module(1, "module01", 100, 8, "ball", "no objective", "no content", "no process", 1));
+//        mModuleList.add(new Module(2, "module02", 100, 8, "ball", "no objective", "no content", "no process", 2));
+//        mModuleList.add(new Module(3, "module03", 100, 8, "ball", "no objective", "no content", "no process", 3));
+//        mModuleList.add(new Module(4, "module04", 100, 8, "ball", "no objective", "no content", "no process", 4));
+//        mModuleList.add(new Module(5, "module05", 100, 8, "ball", "no objective", "no content", "no process", 5));
+//        mModuleList.add(new Module(6, "module06", 100, 8, "ball", "no objective", "no content", "no process", 6));
 
 
 
@@ -119,10 +119,11 @@ public class ModulesFragment extends Fragment {
                                 moduleObj.getString("materials"),
                                 moduleObj.getString("objective"),
                                 moduleObj.getString("content"),
-                                null,
+                                "No Process",
                                 moduleObj.getInt("module_number")
                         );
                         mModuleList.add(module);
+                        mAdapter.notifyDataSetChanged();
                     }
 
 
