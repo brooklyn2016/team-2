@@ -17,6 +17,6 @@ public class AppConfig {
     public static String URL_ACTIVITY = "http://codingmechanic.com/sbs/activity.php";
 
 
-
+    public static String URL_PROFILE = "http://codingmechanic.com/sbs/test.php"; //?profile_id=5&pointadd=5&levelcomp=1
 
 }
