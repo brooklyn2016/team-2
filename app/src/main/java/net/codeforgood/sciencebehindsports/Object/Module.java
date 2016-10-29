@@ -1,10 +1,13 @@
 package net.codeforgood.sciencebehindsports.Object;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by VAIO-Jun on 10/28/2016.
  */
 
-public class Module {
+public class Module implements Parcelable {
     private int id;
     private String module_name;
     private int module_time;
@@ -29,6 +32,30 @@ public class Module {
         this.process = process;
         this.module_number = module_number;
     }
+
+    protected Module(Parcel in) {
+        id = in.readInt();
+        module_name = in.readString();
+        module_time = in.readInt();
+        num_of_activities = in.readInt();
+        materials = in.readString();
+        objective = in.readString();
+        content = in.readString();
+        process = in.readString();
+        module_number = in.readInt();
+    }
+
+    public static final Creator<Module> CREATOR = new Creator<Module>() {
+        @Override
+        public Module createFromParcel(Parcel in) {
+            return new Module(in);
+        }
+
+        @Override
+        public Module[] newArray(int size) {
+            return new Module[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -64,5 +91,23 @@ public class Module {
 
     public int getModule_number() {
         return module_number;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(this.module_name);
+        dest.writeInt(this.module_time);
+        dest.writeInt(this.num_of_activities);
+        dest.writeString(this.materials);
+        dest.writeString(this.objective);
+        dest.writeString(this.content);
+        dest.writeString(this.process);
+        dest.writeInt(this.module_number);
     }
 }
