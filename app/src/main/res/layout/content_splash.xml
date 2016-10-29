@@ -4,6 +4,12 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView android:id="@+id/content_splash1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src = "@drawable/vc_logo"
+        android:layout_gravity="center"  />
+
     <ImageView android:id="@+id/content_splash"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
