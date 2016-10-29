@@ -16,6 +16,7 @@ public class QuizActivity extends AppCompatActivity {
 
     //quiz activity goes here
         Bundle data = getIntent().getExtras();
+        //quiz questions are generated and populated by activityID
         int activityID = data.getInt("activityId");
 
     }
