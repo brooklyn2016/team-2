@@ -1,6 +1,7 @@
 package net.codeforgood.sciencebehindsports.Fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.ListView;
 import net.codeforgood.sciencebehindsports.Adapter.ModuleAdapter;
 import net.codeforgood.sciencebehindsports.Object.Module;
 import net.codeforgood.sciencebehindsports.R;
+import net.codeforgood.sciencebehindsports.UI.ModuleDetailActivity;
 
 import java.util.ArrayList;
 
@@ -62,9 +64,9 @@ public class ModulesFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ModuleDetailFragment fragment = new ModuleDetailFragment();
-                Bundle args = new Bundle();
-                args.putParcelable("ModuleDetail", mModuleList.get(position));
-                fragment.setArguments(args);
+                Intent intent = new Intent(getActivity(), ModuleDetailActivity.class);
+                intent.putExtra("ModuleDetail", mModuleList.get(position));
+
                 android.support.v4.app.FragmentTransaction fragmentTransaction =
                         getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
