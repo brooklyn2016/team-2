@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import net.codeforgood.sciencebehindsports.Fragment.AboutUsFragment;
 import net.codeforgood.sciencebehindsports.Fragment.AvatarFragment;
 import net.codeforgood.sciencebehindsports.Fragment.HomeFragment;
 import net.codeforgood.sciencebehindsports.Fragment.ModulesFragment;
@@ -143,6 +144,14 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
     }
+    private void aboutUsFragment(){
+        AboutUsFragment fragment = new AboutUsFragment();
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
+    }
+
 
 
 

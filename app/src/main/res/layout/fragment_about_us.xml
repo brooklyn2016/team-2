@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="net.codeforgood.sciencebehindsports.Fragment.AboutUsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:orientation="vertical">
+            <TextView
+                android:padding="16dp"
+                android:id="@+id/about_us"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="32sp"
+                android:gravity="center"
+                android:text="About Us"
+                />
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/soundwave_pic"
+                android:id="@+id/module_detail_activity_imageView"
+                android:scaleType="centerCrop"
+                />
+
+            <TextView
+                android:id="@+id/about_us_text"
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                android:text="Victor Cruz started the Victor Cruz Foundation back in 2012. After taking a very slow approach to make sure he created a charitable foundation that would have a valuable impact, Victor knew exactly what direction to go into after a visit to the White House Science Fair. There he toured the showcase of science projects with President Obama and fell in love with the idea and the importance of the study of S.T.E.M education."
+                />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
+
+
