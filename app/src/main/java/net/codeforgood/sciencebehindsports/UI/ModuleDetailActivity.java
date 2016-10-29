@@ -111,7 +111,6 @@ public class ModuleDetailActivity extends AppCompatActivity {
                 Intent intent = new Intent(ModuleDetailActivity.this, ActivityList.class);
                 intent.putExtra("moduleId", moduleId);
                 startActivity(intent);
-
                 finish();
             }
         });
