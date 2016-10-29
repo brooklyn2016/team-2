@@ -44,7 +44,8 @@ public class ActivityFragment extends Fragment {
 
         tempAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, tempList);
         activityRoot = inflater.inflate(R.layout.fragment_activity, container, false);
-        ListView listView = (ListView) activityRoot.findViewById(R.id.activity_main);
+        ListView listView = (ListView) activityRoot.findViewById(R.id.activity_list);
+        listView.setAdapter(tempAdapter);
         return activityRoot;
     }
 

@@ -5,7 +5,7 @@ package net.codeforgood.sciencebehindsports.Object;
  */
 
 public class Activity {
-    private String name;
+
     private int id;
     private int activity_number;
     private String description;
@@ -16,10 +16,9 @@ public class Activity {
     private String materials;
     private String instruction;
 
-    public Activity(String name, int id, int activity_number, String description,
+    public Activity(int id, int activity_number, String description,
                     int module_id, String activity_objective, String result,
                     int activity_time, String materials, String instruction) {
-        this.name = name;
         this.id = id;
         this.activity_number = activity_number;
         this.description = description;
@@ -31,25 +30,39 @@ public class Activity {
         this.instruction = instruction;
     }
 
-    public String getName() {
-        return name;
+    public int getId() {
+        return id;
     }
 
     public int getActivity_number() {
         return activity_number;
     }
 
-    public int getId() {
-        return id;
+    public String getDescription() {
+        return description;
     }
 
     public int getModule_id() {
         return module_id;
     }
 
+    public String getActivity_objective() {
+        return activity_objective;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
     public int getActivity_time() {
         return activity_time;
     }
 
-    
+    public String getMaterials() {
+        return materials;
+    }
+
+    public String getInstruction() {
+        return instruction;
+    }
 }
