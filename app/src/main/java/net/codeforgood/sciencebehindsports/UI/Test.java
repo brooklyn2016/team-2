@@ -12,11 +12,11 @@ public class Test extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+        setContentView(R.layout.activity_detail);
 
         Bundle data = getIntent().getExtras();
         final Activity mActivity = data.getParcelable("ActivityDetail");
-        TextView textView = (TextView)findViewById(R.id.test_text_box);
+        TextView textView = (TextView)findViewById(R.id.activity_detail_test);
         textView.setText(mActivity.getActivity_objective());
 
     }
