@@ -22,8 +22,33 @@ public class ModuleDetailActivity extends AppCompatActivity {
 
         Bundle data = getIntent().getExtras();
         final Module mModule = data.getParcelable("ModuleDetail");
-        TextView textView = (TextView)findViewById(R.id.module_detail_test);
+
+
+
+        final int moduleId = mModule.getId();
+        String moduleName = mModule.getModule_name();
+        int moduleTime = mModule.getModule_time();
+        int moduleNumOfActivity = mModule.getNum_of_activities();
+        String material = mModule.getMaterials();
+        String objective = mModule.getObjective();
+        String content = mModule.getContent();
+        String process = mModule.getContent();
+        int moduleNumber = mModule.getModule_number();
+
+
+
+
+
+        TextView textView = (TextView)findViewById(R.id.module_detail_activity_name);
         textView.setText(mModule.getModule_name());
+
+
+
+
+
+
+
+
 
 
 
@@ -35,7 +60,7 @@ public class ModuleDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ModuleDetailActivity.this, ActivityList.class);
-                intent.putExtra("moduleId", mModule.getId());
+                intent.putExtra("moduleId", moduleId);
                 startActivity(intent);
 
                 finish();

@@ -13,8 +13,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
+                android:padding="16dp"
+                android:id="@+id/module_detail_activity_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="32sp"
+                android:hint="Sound Wave"
+                android:gravity="center"/>
+
         </LinearLayout>
     </ScrollView>
     <Button
