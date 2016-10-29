@@ -1,5 +1,6 @@
 package net.codeforgood.sciencebehindsports.UI;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +14,7 @@ import net.codeforgood.sciencebehindsports.R;
 public class ModuleDetailActivity extends AppCompatActivity {
 
 
-
+    private ProgressDialog pDialog;
     Button startActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,13 @@ public class ModuleDetailActivity extends AppCompatActivity {
         final Module mModule = data.getParcelable("ModuleDetail");
         TextView textView = (TextView)findViewById(R.id.module_detail_test);
         textView.setText(mModule.getModule_name());
+
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Logging In");
+
+
+
 
         startActivity = (Button) findViewById(R.id.module_detail_activity);
         startActivity.setOnClickListener(new View.OnClickListener() {

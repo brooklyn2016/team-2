@@ -10,4 +10,10 @@ public class AppConfig {
     // Server user register url
     public static String URL_REGISTER = "http://codingmechanic.com/sbs/registration.php";
 
+
+    public static String URL_MODULE = "http://codingmechanic.com/sbs/module_data.php";
+
+
+    public static String URL_ACTIVITY;
+
 }

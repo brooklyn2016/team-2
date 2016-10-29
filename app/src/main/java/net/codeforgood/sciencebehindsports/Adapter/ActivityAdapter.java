@@ -27,7 +27,7 @@ public class ActivityAdapter extends ArrayAdapter<Activity> {
     public View getView(int position, View convertView, ViewGroup parent) {
         Activity activity = getItem(position);
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.module_list_item, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_list_item, parent, false);
         }
         TextView name = (TextView) convertView.findViewById(R.id.activity_list_activity);
         TextView time = (TextView) convertView.findViewById(R.id.activity_list_time);

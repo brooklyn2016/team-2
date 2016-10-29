@@ -1,6 +1,7 @@
 package net.codeforgood.sciencebehindsports.Fragment;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,13 +10,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 
 import net.codeforgood.sciencebehindsports.Adapter.ModuleAdapter;
+import net.codeforgood.sciencebehindsports.App.AppConfig;
 import net.codeforgood.sciencebehindsports.Object.Module;
 import net.codeforgood.sciencebehindsports.R;
 import net.codeforgood.sciencebehindsports.UI.ModuleDetailActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +39,7 @@ public class ModulesFragment extends Fragment {
 
 
     View mRoot;
+    private ProgressDialog pDialog;
 
     ArrayList<Module> mModuleList;
     ModuleAdapter mAdapter;
@@ -37,7 +53,9 @@ public class ModulesFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-
+        pDialog = new ProgressDialog(getContext());
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Logging In");
 
         mModuleList = new ArrayList<>();
 
@@ -72,4 +90,71 @@ public class ModulesFragment extends Fragment {
         return mRoot;
     }
 
+
+    private void populateList(){
+        String tag_string_req = "req_module";
+        final RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
+                AppConfig.URL_LOGIN, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                try {
+
+                    response.getBoolean("error");
+
+
+
+
+
+
+
+                    hideDialog();
+                    requestQueue.stop();
+
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                hideDialog();
+                requestQueue.stop();
+            }
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getContext(), "some thing fishy", Toast.LENGTH_LONG).show();
+                        hideDialog();
+                        requestQueue.stop();
+                    }
+                }
+        ){
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting parameters to login url
+                Map<String, String> params = new HashMap<String, String>();
+//                params.put("email", username);
+//                params.put("password", pass);
+
+                return params;
+            }
+
+        };
+        requestQueue.add(jsonObjReq);
+    }
+
+    public void showDialog() {
+        if (!pDialog.isShowing()) {
+            pDialog.show();
+        }
+    }
+
+    public void hideDialog() {
+        if (pDialog.isShowing()) {
+            pDialog.dismiss();
+        }
+    }
 }
