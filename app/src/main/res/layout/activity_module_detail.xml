@@ -42,10 +42,12 @@
                 android:id="@+id/module_detail_activity_materials"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="16sp"
                 android:text="@string/place_holder"/>
             <TextView
                 android:id="@+id/module_detail_activity_objective"
                 android:layout_width="match_parent"
+                android:textSize="16sp"
                 android:layout_height="wrap_content"
                 android:text="@string/place_holder"/>
             <ImageView
@@ -55,8 +57,10 @@
                 android:id="@+id/module_detail_activity_imageView_2"
                 android:src="@drawable/soundwave_pic"/>
             <TextView
+                android:textColor="@android:color/holo_blue_bright"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="16sp"
                 android:id="@+id/module_detail_activity_content"
                 android:text="@string/place_holder"/>
 

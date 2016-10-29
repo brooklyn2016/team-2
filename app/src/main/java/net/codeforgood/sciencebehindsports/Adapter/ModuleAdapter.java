@@ -36,8 +36,8 @@ public class ModuleAdapter extends ArrayAdapter<Module> {
         TextView activities = (TextView) convertView.findViewById(R.id.module_list_activity);
 
         String moduleName = module.getModule_name();
-        String moduleTime = String.valueOf(module.getModule_time());
-        String moduleActivities = String.valueOf(module.getNum_of_activities());
+        String moduleTime = String.valueOf(module.getModule_time())+" Minute";
+        String moduleActivities = String.valueOf(module.getNum_of_activities())+" Activity";
 
         name.setText(moduleName);
         time.setText(moduleTime);

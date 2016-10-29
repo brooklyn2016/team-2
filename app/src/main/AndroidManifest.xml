@@ -12,11 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".UI.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".UI.RegistrationActivity" />
         <activity
@@ -27,11 +23,16 @@
         <activity android:name=".UI.ActivityDetailActivity" />
         <activity android:name=".UI.ActivityList" />
         <activity android:name=".UI.QuizActivity" />
-        <activity android:name=".UI.Test" />
         <activity
             android:name=".UI.SplashActivity"
             android:label="@string/title_activity_splash"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
