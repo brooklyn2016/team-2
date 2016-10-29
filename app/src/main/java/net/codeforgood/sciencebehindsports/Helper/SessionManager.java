@@ -11,7 +11,8 @@ public class SessionManager {
     // Shared preferences file name
     private static final String PREF_NAME = "ShowTrack";
     private static final String KEY_IS_LOGGED_IN = "isLoggedIn";
-    private static final String KEY_TOKEN = "token";
+    private static final String KEY_MODULE = "module";
+    private static final String KEY_ACTIVITY = "activity";
     // LogCat tag
     private static String TAG = SessionManager.class.getSimpleName();
     // Shared Preferences
@@ -20,6 +21,7 @@ public class SessionManager {
     Context _context;
     // Shared pref mode
     int PRIVATE_MODE = 0;
+
 
 
     public SessionManager(Context context) {
@@ -42,12 +44,5 @@ public class SessionManager {
         return pref.getBoolean(KEY_IS_LOGGED_IN, false);
     }
 
-    public String getToken() {
-        return pref.getString(KEY_TOKEN, null);
-    }
 
-    public void setToken(String token) {
-        editor.putString(KEY_TOKEN, token);
-        editor.commit();
-    }
 }

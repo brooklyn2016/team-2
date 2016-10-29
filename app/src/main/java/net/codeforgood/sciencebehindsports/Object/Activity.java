@@ -4,7 +4,7 @@ package net.codeforgood.sciencebehindsports.Object;
  * Created by VAIO-Jun on 10/28/2016.
  */
 
-public class Activity {
+public class Activity{
 
     private int id;
     private int activity_number;
