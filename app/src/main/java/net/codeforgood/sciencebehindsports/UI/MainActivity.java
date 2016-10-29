@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import net.codeforgood.sciencebehindsports.Fragment.AvatarFragment;
 import net.codeforgood.sciencebehindsports.Fragment.HomeFragment;
 import net.codeforgood.sciencebehindsports.Fragment.ModulesFragment;
 import net.codeforgood.sciencebehindsports.Fragment.ProgressFragment;
@@ -86,17 +87,13 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
+            homeFragment();
         } else if (id == R.id.nav_modules) {
-
+            modulesFragment();
         } else if (id == R.id.nav_progress) {
-
+            progressFragment();
         } else if (id == R.id.nav_avatar) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+            avatarFragment();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -128,7 +125,12 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.commit();
     }
 
-
-
+    private void avatarFragment(){
+        AvatarFragment fragment = new AvatarFragment();
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
+    }
 
 }
