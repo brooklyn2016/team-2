@@ -100,7 +100,7 @@ public class Module implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
+        dest.writeInt(this.id);
         dest.writeString(this.module_name);
         dest.writeInt(this.module_time);
         dest.writeInt(this.num_of_activities);
