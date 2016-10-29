@@ -37,4 +37,9 @@
     <string name="search_hint">Enter show name</string>
     <string name="place_holder_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="place_holder">
+slackbot BOT [2:36 AM] Only visible to you
+junli is currently in Do Not Disturb mode and may not be alerted of this message right away. If it’s urgent, click here to send a notification now. Keep in mind, if the recipient has all notifications turned off, they will only get your message when they’re back online.
+
+How does Do Not Disturb work? Learn more in this Help Center article: Do Not Disturb</string>
 </resources>

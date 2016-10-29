@@ -13,9 +13,11 @@
             android:id="@+id/module_detail_test"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hello"/>
+            android:textSize="60sp"
+            android:hint="@string/place_holder"/>
     </ScrollView>
     <Button
+        android:id="@+id/module_detail_activity"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
