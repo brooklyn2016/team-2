@@ -116,7 +116,7 @@ public class ModulesFragment extends Fragment {
                                 moduleObj.getString("module_name"),
                                 moduleObj.getInt("module_time"),
                                 moduleObj.getInt("num_of_activities"),
-                                moduleObj.getString("material"),
+                                moduleObj.getString("materials"),
                                 moduleObj.getString("objective"),
                                 moduleObj.getString("content"),
                                 null,
