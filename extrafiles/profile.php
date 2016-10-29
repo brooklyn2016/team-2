@@ -41,7 +41,6 @@
 		$points = $row["profile_points"];
 
 		$points += $pointadd;
-		
 		$task = $row["profile_comptasks"];
 		
 		$task += $levelcomp;
@@ -52,7 +51,11 @@
 
 
 		if (mysqli_query($con, $sql)) {
-    			echo "Record updated successfully";
+    			
+		$response["profile_info"]["points"] = $points;
+		$response["profile_info"]["comptasks"] = $task;
+		$response["error"] = false;		
+		$response["success"] = true;
 		} else {
     			echo "Error updating record: " . mysqli_error($conn);
 		}

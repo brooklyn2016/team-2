@@ -25,30 +25,35 @@
                 android:textSize="24dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="30dp"
+                android:text="Question: "
                 />
             
             <Button
                 android:id="@+id/activity_quiz_choiceA"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:text="A. "
 
                 />
             <Button
                 android:id="@+id/activity_quiz_choiceB"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:text="B. "
 
                 />
             <Button
                 android:id="@+id/activity_quiz_choiceC"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:text="C. "
 
                 />
             <Button
                 android:id="@+id/activity_quiz_choiceD"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:text="D. "
                 />
 
         </LinearLayout>
@@ -57,7 +62,7 @@
                 android:id="@+id/activity_quiz_hint"
                 android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:shadowColor="#00E0FF"
                 android:text="Hint"
                 android:textSize="24dp"/>
