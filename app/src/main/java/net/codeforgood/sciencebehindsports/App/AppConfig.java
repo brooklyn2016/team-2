@@ -14,6 +14,9 @@ public class AppConfig {
     public static String URL_MODULE = "http://codingmechanic.com/sbs/module_data.php";
 
 
-    public static String URL_ACTIVITY;
+    public static String URL_ACTIVITY = "http://codingmechanic.com/sbs/activity_data.php";
+
+
+
 
 }
