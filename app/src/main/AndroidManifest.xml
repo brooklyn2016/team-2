@@ -27,7 +27,11 @@
         <activity android:name=".UI.ActivityDetailActivity" />
         <activity android:name=".UI.ActivityList" />
         <activity android:name=".UI.QuizActivity" />
-        <activity android:name=".UI.Test"></activity>
+        <activity android:name=".UI.Test" />
+        <activity
+            android:name=".UI.SplashActivity"
+            android:label="@string/title_activity_splash"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
