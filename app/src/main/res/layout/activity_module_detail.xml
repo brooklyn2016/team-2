@@ -60,16 +60,16 @@
                 android:id="@+id/module_detail_activity_content"
                 android:text="@string/place_holder"/>
 
-
+            <Button
+                android:id="@+id/module_detail_activity"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Start Activity"/>
 
         </LinearLayout>
     </ScrollView>
-    <Button
-        android:id="@+id/module_detail_activity"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Start Activity"/>
+
 </RelativeLayout>
 
 

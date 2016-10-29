@@ -8,9 +8,11 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/home_fragment_welcome"
+        android:layout_marginTop="60dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home_fragment"
+        android:layout_height="wrap_content"
+        android:text="Welcome "
         android:gravity="center"
         />
 
