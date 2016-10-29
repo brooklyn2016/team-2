@@ -30,6 +30,7 @@ public class ModuleAdapter extends ArrayAdapter<Module> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.module_list_item, parent, false);
         }
+        //gets module name and module time to display
         TextView name = (TextView) convertView.findViewById(R.id.module_list_name);
         TextView time = (TextView) convertView.findViewById(R.id.module_list_time);
         TextView activities = (TextView) convertView.findViewById(R.id.module_list_activity);

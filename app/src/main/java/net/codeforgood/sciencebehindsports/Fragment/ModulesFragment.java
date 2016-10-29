@@ -106,6 +106,7 @@ public class ModulesFragment extends Fragment {
                   String process, int module_number)
 
  */
+                //gets json file from phpmysql to retrieve data
                 try {
                     JSONArray moduleArray = response.getJSONArray("module");
 
