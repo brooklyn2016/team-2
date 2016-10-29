@@ -24,7 +24,8 @@
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".UI.ModuleDetailActivity" />
-        <activity android:name=".UI.ActivityList"></activity>
+        <activity android:name=".UI.ActivityList" />
+        <activity android:name=".UI.QuizActivity"></activity>
     </application>
 
 </manifest>
