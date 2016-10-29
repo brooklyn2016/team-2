@@ -63,14 +63,9 @@ public class ModulesFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ModuleDetailFragment fragment = new ModuleDetailFragment();
                 Intent intent = new Intent(getActivity(), ModuleDetailActivity.class);
                 intent.putExtra("ModuleDetail", mModuleList.get(position));
-
-                android.support.v4.app.FragmentTransaction fragmentTransaction =
-                        getActivity().getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, fragment);
-                fragmentTransaction.commit();
+                startActivity(intent);
             }
         });
 
