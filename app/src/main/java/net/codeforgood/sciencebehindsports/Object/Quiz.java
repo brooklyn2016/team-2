@@ -14,7 +14,8 @@ public class Quiz {
     private int rightAnswer;
     private int activityId;
 
-    public Quiz(int id, String question, String answer1, String answer2, String answer3, String answer4, int rightAnswer, int activityId) {
+    public Quiz(int id, String question, String answer1, String answer2,
+                String answer3, String answer4, int rightAnswer, int activityId) {
         this.id = id;
         this.question = question;
         this.answer1 = answer1;

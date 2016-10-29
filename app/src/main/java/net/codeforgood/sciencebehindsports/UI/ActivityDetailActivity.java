@@ -88,7 +88,7 @@ public class ActivityDetailActivity extends AppCompatActivity {
                 videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.material_demo);
                 break;
             case 6:
-                videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.projectile_demo);
+                videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.body_demo);
                 break;
             default:
                 break;

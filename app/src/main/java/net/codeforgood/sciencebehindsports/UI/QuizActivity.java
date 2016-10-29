@@ -1,8 +1,9 @@
 package net.codeforgood.sciencebehindsports.UI;
 
+import android.app.ProgressDialog;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,7 +12,7 @@ import net.codeforgood.sciencebehindsports.R;
 
 public class QuizActivity extends AppCompatActivity {
 
-    Button choiceA,choiceB,choiceC, choiceD,hint;
+    Button choiceA, choiceB, choiceC, choiceD, hint;
     TextView question;
     public boolean answered = false;
     public int rightAns;
@@ -22,6 +23,9 @@ public class QuizActivity extends AppCompatActivity {
     public String tempAnswer4;
     public String tempHint;
     public String tempExplanation;
+    private ProgressDialog pDialog;
+    int activityID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,10 +38,15 @@ public class QuizActivity extends AppCompatActivity {
         choiceD = (Button) findViewById(R.id.activity_quiz_choiceD);
         hint = (Button) findViewById(R.id.activity_quiz_hint);
 
-    //quiz activity goes here
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Getting Activity Data");
+
+        //quiz activity goes here
         Bundle data = getIntent().getExtras();
         //quiz questions are generated and populated by activityID
-        int activityID = data.getInt("activityId");
+        activityID = data.getInt("activityId");
+
 
         tempQuestion = "What is the speed of the football right before it lands if it is thrown " +
                 "at an angle of 45 degree above horizon and at the speed of 80m/s (assume ideal trajectory motion)?";
@@ -50,16 +59,16 @@ public class QuizActivity extends AppCompatActivity {
                 "throwing and right before landing";
         rightAns = 2;
 
-        question.setText("Question: "+tempQuestion);
-        choiceA.setText("A. "+tempAnswer1);
-        choiceB.setText("B. "+tempAnswer2);
-        choiceC.setText("C. "+tempAnswer3);
-        choiceD.setText("D. "+tempAnswer4);
+        question.setText("Question: " + tempQuestion);
+        choiceA.setText("A. " + tempAnswer1);
+        choiceB.setText("B. " + tempAnswer2);
+        choiceC.setText("C. " + tempAnswer3);
+        choiceD.setText("D. " + tempAnswer4);
 
         choiceA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(rightAns == 1)
+                if (rightAns == 1)
                     choiceA.setBackgroundColor(Color.GREEN);
                 else
                     choiceA.setBackgroundColor(Color.RED);
@@ -70,7 +79,7 @@ public class QuizActivity extends AppCompatActivity {
         choiceB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(rightAns == 2)
+                if (rightAns == 2)
                     choiceB.setBackgroundColor(Color.GREEN);
                 else
                     choiceB.setBackgroundColor(Color.RED);
@@ -82,7 +91,7 @@ public class QuizActivity extends AppCompatActivity {
         choiceC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(rightAns == 3)
+                if (rightAns == 3)
                     choiceC.setBackgroundColor(Color.GREEN);
                 else
                     choiceC.setBackgroundColor(Color.RED);
@@ -93,7 +102,7 @@ public class QuizActivity extends AppCompatActivity {
         choiceD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(rightAns == 4)
+                if (rightAns == 4)
                     choiceD.setBackgroundColor(Color.GREEN);
                 else
                     choiceD.setBackgroundColor(Color.RED);
@@ -101,38 +110,50 @@ public class QuizActivity extends AppCompatActivity {
                 disableAll();
             }
         });
-        hint.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
+        hint.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
                 if (!answered) {
                     hint.setTextSize(12);
                     hint.setText(tempHint);
                 }
-                if(answered)
+                if (answered)
                     finish();
             }
         });
 
     }
 
-    private void disableAll()
-    {
+    private void disableAll() {
         choiceA.setEnabled(false);
         choiceB.setEnabled(false);
         choiceC.setEnabled(false);
         choiceD.setEnabled(false);
     }
-    private void showCorrectAns(int rightAns)
-    {
+
+    private void showCorrectAns(int rightAns) {
         if (rightAns == 1)
             choiceA.setBackgroundColor(Color.GREEN);
-        else if(rightAns == 2)
+        else if (rightAns == 2)
             choiceB.setBackgroundColor(Color.GREEN);
-        else if(rightAns == 3)
+        else if (rightAns == 3)
             choiceC.setBackgroundColor(Color.GREEN);
-        else if(rightAns == 4)
+        else if (rightAns == 4)
             choiceD.setBackgroundColor(Color.GREEN);
-        question.setText("Explanation: "+tempExplanation);
+        question.setText("Explanation: " + tempExplanation);
         hint.setText("BACK");
         answered = true;
+    }
+
+
+    public void showDialog() {
+        if (!pDialog.isShowing()) {
+            pDialog.show();
+        }
+    }
+
+    public void hideDialog() {
+        if (pDialog.isShowing()) {
+            pDialog.dismiss();
+        }
     }
 }

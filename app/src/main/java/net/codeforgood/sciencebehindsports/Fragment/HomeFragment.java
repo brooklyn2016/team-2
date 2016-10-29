@@ -29,7 +29,7 @@ public class HomeFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         VideoView videoView = (VideoView) rootView.findViewById(R.id.home_fragment_video);
-        videoView.setVideoPath("android.resource://" + getActivity().getPackageName() + "/" + R.raw.sound_wave_demo);
+        videoView.setVideoPath("android.resource://" + getActivity().getPackageName() + "/" + R.raw.intro);
 
         MediaController mediaController = new MediaController(getContext());
         mediaController.setAnchorView(videoView);
