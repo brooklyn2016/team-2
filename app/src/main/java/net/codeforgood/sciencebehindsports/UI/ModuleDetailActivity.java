@@ -24,7 +24,7 @@ public class ModuleDetailActivity extends AppCompatActivity {
         final Module mModule = data.getParcelable("ModuleDetail");
 
 
-
+        //creates objects included in activity
         final int moduleId = mModule.getId();
         String moduleName = mModule.getModule_name();
         int moduleTime = mModule.getModule_time();
