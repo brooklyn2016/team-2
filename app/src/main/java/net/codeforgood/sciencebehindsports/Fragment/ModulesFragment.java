@@ -25,6 +25,7 @@ import net.codeforgood.sciencebehindsports.Object.Module;
 import net.codeforgood.sciencebehindsports.R;
 import net.codeforgood.sciencebehindsports.UI.ModuleDetailActivity;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -66,12 +67,15 @@ public class ModulesFragment extends Fragment {
 
         mAdapter = new ModuleAdapter(getContext(), mModuleList);
 
+        populateList();
         mModuleList.add(new Module(1, "module01", 100, 8, "ball", "no objective", "no content", "no process", 1));
         mModuleList.add(new Module(2, "module02", 100, 8, "ball", "no objective", "no content", "no process", 2));
         mModuleList.add(new Module(3, "module03", 100, 8, "ball", "no objective", "no content", "no process", 3));
         mModuleList.add(new Module(4, "module04", 100, 8, "ball", "no objective", "no content", "no process", 4));
         mModuleList.add(new Module(5, "module05", 100, 8, "ball", "no objective", "no content", "no process", 5));
         mModuleList.add(new Module(6, "module06", 100, 8, "ball", "no objective", "no content", "no process", 6));
+
+
 
         mRoot = inflater.inflate(R.layout.fragment_modules, container, false);
 
@@ -93,15 +97,39 @@ public class ModulesFragment extends Fragment {
 
     private void populateList(){
         String tag_string_req = "req_module";
+        showDialog();
         final RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                AppConfig.URL_LOGIN, null, new Response.Listener<JSONObject>() {
+                AppConfig.URL_MODULE, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+/*
+(int id, String module_name, int module_time,
+                  int num_of_activities, String materials,
+                  String objective, String content,
+                  String process, int module_number)
 
+ */
                 try {
+                    JSONArray moduleArray = response.getJSONArray("module");
 
-                    response.getBoolean("error");
+                    for(int i = 0; i<moduleArray.length(); i++){
+                        JSONObject moduleObj = moduleArray.getJSONObject(i);
+                        Module module = new Module(
+                                moduleObj.getInt("module_id"),
+                                moduleObj.getString("module_name"),
+                                moduleObj.getInt("module_time"),
+                                moduleObj.getInt("num_of_activities"),
+                                moduleObj.getString("material"),
+                                moduleObj.getString("objective"),
+                                moduleObj.getString("content"),
+                                null,
+                                moduleObj.getInt("module_number")
+                        );
+                        mModuleList.add(module);
+                    }
+
+
 
 
 
